@@ -1,10 +1,11 @@
 import { EMPTY_OBJ } from '../constants';
 import { Component } from '../component';
-import { Fragment } from '../create-element';
+import { Fragment, InjectionProvider, VNode } from '../create-element';
 import { diffChildren } from './children';
 import { diffProps, setProperty } from './props';
 import { assign, removeNode, slice } from '../util';
 import options from '../options';
+import { instantiate, createInjectorProvider } from '../injector/index';
 
 /**
  * Diff two virtual nodes and apply proper changes to the DOM
@@ -33,6 +34,11 @@ export function diff(
 	oldDom,
 	isHydrating
 ) {
+	// clone isClassComponent injector
+	if (oldVNode instanceof VNode) {
+		newVNode.isClassComponent = oldVNode.isClassComponent;
+		newVNode.injector = oldVNode.injector;
+	}
 	let tmp,
 		newType = newVNode.type;
 
@@ -74,8 +80,18 @@ export function diff(
 				// Instantiate the new component
 				if ('prototype' in newType && newType.prototype.render) {
 					// @ts-ignore The check above verifies that newType is suppose to be constructed
-					newVNode._component = c = new newType(newProps, componentContext); // eslint-disable-line new-cap
+					newVNode.isClassComponent = true;
+					newVNode._component = c = instantiate(
+						newType,
+						newProps,
+						componentContext,
+						newVNode
+					);
 				} else {
+					if (newType === InjectionProvider) {
+						const injector = createInjectorProvider(newVNode);
+						newVNode.injector = injector;
+					}
 					// @ts-ignore Trust me, Component implements the interface we want
 					newVNode._component = c = new Component(newProps, componentContext);
 					c.constructor = newType;

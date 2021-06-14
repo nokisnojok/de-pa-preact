@@ -250,6 +250,20 @@ export function cloneElement<P>(
 // TODO: Revisit what the public type of this is...
 export const Fragment: ComponentClass<{}, {}>;
 
+function Props(): ParameterDecorator;
+	
+function Context(): ParameterDecorator;
+
+function Parent(): ParameterDecorator;
+
+function IComponent(): ClassDecorator;
+
+interface InjectionProviderProps {
+	providers?: any[];
+}
+
+const InjectionProvider: ComponentClass<InjectionProviderProps, {}>;
+
 //
 // Preact options
 // -----------------------------------

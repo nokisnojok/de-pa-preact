@@ -94,6 +94,8 @@ type RefCallback<T> = { (instance: T | null): void; current: undefined };
 type Ref<T> = RefObject<T> | RefCallback<T>;
 
 export interface VNode<P = {}> extends preact.VNode<P> {
+	injector?: any;
+	isClassComponent?: boolean;
 	// Redefine type here using our internal ComponentType type
 	type: string | ComponentType<P>;
 	props: P & { children: ComponentChildren };

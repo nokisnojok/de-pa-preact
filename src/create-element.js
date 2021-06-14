@@ -40,6 +40,29 @@ export function createElement(type, props, children) {
 	return createVNode(type, normalizedProps, key, ref, null);
 }
 
+export class VNode {
+	constructor(type, props, key, ref, original) {
+		this.type = type;
+		this.props = props;
+		this.key = key;
+		this.ref = ref;
+		this._children = null;
+		this._parent = null;
+		this._depth = 0;
+		this._dom = null;
+		this._nextDom = undefined;
+		this._component = null;
+		this._hydrating = null;
+		this.constructor = undefined;
+		this._original = original == null ? ++vnodeId : original;
+		if (options.vnode != null) options.vnode(this);
+		// isClassComponent
+		this.isClassComponent = undefined;
+		// injector
+		this.injector = undefined;
+	}
+}
+
 /**
  * Create a VNode (used internally by Preact)
  * @param {import('./internal').VNode["type"]} type The node name or Component
@@ -53,29 +76,30 @@ export function createElement(type, props, children) {
  * @returns {import('./internal').VNode}
  */
 export function createVNode(type, props, key, ref, original) {
+	const vnode = new VNode(type, props, key, ref, original);
 	// V8 seems to be better at detecting type shapes if the object is allocated from the same call site
 	// Do not inline into createElement and coerceToVNode!
-	const vnode = {
-		type,
-		props,
-		key,
-		ref,
-		_children: null,
-		_parent: null,
-		_depth: 0,
-		_dom: null,
-		// _nextDom must be initialized to undefined b/c it will eventually
-		// be set to dom.nextSibling which can return `null` and it is important
-		// to be able to distinguish between an uninitialized _nextDom and
-		// a _nextDom that has been set to `null`
-		_nextDom: undefined,
-		_component: null,
-		_hydrating: null,
-		constructor: undefined,
-		_original: original == null ? ++vnodeId : original
-	};
+	// const vnode = {
+	// 	type,
+	// 	props,
+	// 	key,
+	// 	ref,
+	// 	_children: null,
+	// 	_parent: null,
+	// 	_depth: 0,
+	// 	_dom: null,
+	// 	// _nextDom must be initialized to undefined b/c it will eventually
+	// 	// be set to dom.nextSibling which can return `null` and it is important
+	// 	// to be able to distinguish between an uninitialized _nextDom and
+	// 	// a _nextDom that has been set to `null`
+	// 	_nextDom: undefined,
+	// 	_component: null,
+	// 	_hydrating: null,
+	// 	constructor: undefined,
+	// 	_original: original == null ? ++vnodeId : original
+	// };
 
-	if (options.vnode != null) options.vnode(vnode);
+	// if (options.vnode != null) options.vnode(vnode);
 
 	return vnode;
 }
@@ -85,6 +109,10 @@ export function createRef() {
 }
 
 export function Fragment(props) {
+	return props.children;
+}
+
+export function InjectionProvider(props) {
 	return props.children;
 }
 

@@ -1,7 +1,7 @@
 {
-	"name": "preact",
+	"name": "@de-pa/preact",
 	"amdName": "preact",
-	"version": "10.5.13",
+	"version": "0.0.1",
 	"private": false,
 	"description": "Fast 3kb React-compatible Virtual DOM library.",
 	"main": "dist/preact.js",
@@ -212,11 +212,15 @@
 		"framework"
 	],
 	"authors": [
-		"The Preact Authors (https://github.com/preactjs/preact/contributors)"
+		"The Preact Authors (https://github.com/nokisnojok/de-pa-preact/preact/contributors)"
 	],
 	"repository": "preactjs/preact",
-	"bugs": "https://github.com/preactjs/preact/issues",
-	"homepage": "https://preactjs.com",
+	"bugs": "https://github.com/nokisnojok/de-pa-preact/preact/issues",
+	"homepage": "https://github.com/nokisnojok/de-pa-preact",
+	"peerDependencies": {
+		"reflect-metadata": ">= 0.1.13",
+		"injection-js": ">=2.4.0"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.7.0",
 		"@babel/plugin-proposal-object-rest-spread": "^7.6.2",
@@ -244,6 +248,7 @@
 		"eslint-config-prettier": "^6.5.0",
 		"eslint-plugin-react": "7.12.4",
 		"husky": "^4.3.0",
+		"injection-js": "^2.4.0",
 		"karma": "^5.2.3",
 		"karma-chai-sinon": "^0.1.5",
 		"karma-chrome-launcher": "^3.1.0",
@@ -263,6 +268,7 @@
 		"npm-run-all": "^4.0.0",
 		"prettier": "^1.18.2",
 		"prop-types": "^15.7.2",
+		"reflect-metadata": "^0.1.13",
 		"sinon": "^9.2.3",
 		"sinon-chai": "^3.5.0",
 		"typescript": "3.5.3"
