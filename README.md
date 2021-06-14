@@ -10,7 +10,7 @@
 **All the power of Virtual DOM components, without the overhead:**
 
 - Familiar React API & patterns: ES6 Class, hooks, and Functional Components
-- Extensive React compatibility via a simple [preact/compat] alias
+- Extensive React compatibility via a simple [@de-pa/preact/compat] alias
 - Everything you need: JSX, <abbr title="Virtual DOM">VDOM</abbr>, [DevTools], <abbr title="Hot Module Replacement">HMR</abbr>, <abbr title="Server-Side Rendering">SSR</abbr>.
 - Highly optimized diff algorithm and seamless hydration from Server Side Rendering
 - Supports all modern browsers and IE11
@@ -25,14 +25,10 @@
 <tr>
 <td>
 
-[![npm](https://img.shields.io/npm/v/preact.svg)](http://npm.im/preact)
-[![Preact Slack Community](https://preact-slack.now.sh/badge.svg)](https://chat.preactjs.com)
-[![OpenCollective Backers](https://opencollective.com/preact/backers/badge.svg)](#backers)
+[![npm](https://img.shields.io/npm/v/preact.svg)](http://npm.im/@de-pa/preact)
 [![OpenCollective Sponsors](https://opencollective.com/preact/sponsors/badge.svg)](#sponsors)
 
 [![coveralls](https://img.shields.io/coveralls/preactjs/preact/master.svg)](https://coveralls.io/github/preactjs/preact)
-[![gzip size](http://img.badgesize.io/https://unpkg.com/preact/dist/preact.min.js?compression=gzip&label=gzip)](https://unpkg.com/preact/dist/preact.min.js)
-[![brotli size](http://img.badgesize.io/https://unpkg.com/preact/dist/preact.min.js?compression=brotli&label=brotli)](https://unpkg.com/preact/dist/preact.min.js)
 </td>
 <td>
 
@@ -50,8 +46,6 @@ You can find some awesome libraries in the [awesome-preact list](https://github.
 
 ## Getting Started
 
-> 💁 _**Note:** You [don't need ES2015 to use Preact](https://github.com/developit/preact-in-es3)... but give it a try!_
-
 The easiest way to get started with Preact is to install [Preact CLI](https://github.com/preactjs/preact-cli). This simple command-line tool wraps up the best possible tooling for you, and even keeps things like Webpack and Babel up-to-date as they change. Best of all, it's easy to understand! Start a project or compile for production in a single command (`preact build`), with no configuration needed and best practices baked in! 🙌
 
 #### Tutorial: Building UI with Preact
@@ -60,12 +54,36 @@ With Preact, you create user interfaces by assembling trees of components and el
 
 To get started using Preact, first look at the render() function. This function accepts a tree description and creates the structure described. Next, it appends this structure to a parent DOM element provided as the second argument. Future calls to render() will reuse the existing tree and update it in-place in the DOM. Internally, render() will calculate the difference from previous outputted structures in an attempt to perform as few DOM operations as possible.
 
+## Installation
+```
+npm i @de-pa/react @de-pa/react-dom injection-js reflect-metadata --save
+```
+
 ```js
-import { h, render } from 'preact';
+import { h, render, Component, IComponent, InjectionProvider } from '@de-pa/preact';
 // Tells babel to use h for JSX. It's better to configure this globally.
 // See https://babeljs.io/docs/en/babel-plugin-transform-react-jsx#usage
 // In tsconfig you can specify this with the jsxFactory
 /** @jsx h */
+
+class Service {
+	method() {
+		return 'hello world':
+	}
+}
+
+@IComponent()
+class Root extends Component {
+	constructor(public service: Service) {
+		super();
+	}
+	render() {
+		return <main><h1>{this.service.method()}</h1></main>;
+	}
+}
+
+// create our tree and append it to document.body:
+render(<InjectionProvider providers={[Service]}><Root /></InjectionProvider>, document.body);
 
 // create our tree and append it to document.body:
 render(<main><h1>Hello</h1></main>, document.body);
@@ -172,6 +190,14 @@ Become a sponsor and get your logo on our README on GitHub with a link to your s
 <a href="https://opencollective.com/preact/sponsor/29/website" target="_blank"><img src="https://opencollective.com/preact/sponsor/29/avatar.svg"></a>
 
 ---
+
+# Links
+
+- [@de-pa/react](https://www.npmjs.com/package/@de-pa/react)
+- [@de-pa/react-dom](https://www.npmjs.com/package/@de-pa/react-dom)
+- [Dependency Injection](https://v4.angular.io/guide/dependency-injection)
+- [Dependency Injection in action](https://v4.angular.io/guide/dependency-injection-in-action)
+- [Dependency Injection without Typescript](https://v2.angular.io/docs/ts/latest/cookbook/ts-to-js.html#!#dependency-injection)
 
 ## License
 
