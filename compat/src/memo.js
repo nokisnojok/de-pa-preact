@@ -1,4 +1,4 @@
-import { createElement } from 'preact';
+import { createElement } from '@de-pa/preact';
 import { shallowDiffers } from './util';
 
 /**

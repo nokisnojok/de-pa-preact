@@ -1,4 +1,4 @@
-import { Component, toChildArray } from 'preact';
+import { Component, toChildArray } from '@de-pa/preact';
 import { suspended } from './suspense.js';
 
 // Indexes to linked list nodes (nodes are stored as arrays to save bytes).

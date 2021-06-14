@@ -13,9 +13,9 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			['preact/debug']: path.join(__dirname, '..', 'debug'),
-			['preact/devtools']: path.join(__dirname, '..', 'devtools'),
-			['preact/hooks']: path.join(__dirname, '..', 'hooks', 'src'),
+			['@de-pa/preact/debug']: path.join(__dirname, '..', 'debug'),
+			['@de-pa/preact/devtools']: path.join(__dirname, '..', 'devtools'),
+			['@de-pa/preact/hooks']: path.join(__dirname, '..', 'hooks', 'src'),
 			preact: preact,
 			react: compat,
 			'react-dom': compat

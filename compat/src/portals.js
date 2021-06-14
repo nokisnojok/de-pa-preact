@@ -1,4 +1,4 @@
-import { createElement, render } from 'preact';
+import { createElement, render } from '@de-pa/preact';
 
 /**
  * @param {import('../../src/index').RenderableProps<{ context: any }>} props

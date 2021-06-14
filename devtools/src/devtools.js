@@ -1,4 +1,4 @@
-import { options, Fragment, Component } from 'preact';
+import { options, Fragment, Component } from '@de-pa/preact';
 
 export function initDevTools() {
 	if (typeof window != 'undefined' && window.__PREACT_DEVTOOLS__) {

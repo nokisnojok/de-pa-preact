@@ -1,4 +1,4 @@
-import { options, Fragment } from 'preact';
+import { options, Fragment } from '@de-pa/preact';
 
 /**
  * Get human readable name of the component/dom node

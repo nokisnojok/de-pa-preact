@@ -1,4 +1,4 @@
-import { createElement, Component } from 'preact';
+import { createElement, Component } from '@de-pa/preact';
 
 let counter = 0;
 

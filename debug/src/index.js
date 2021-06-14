@@ -1,5 +1,5 @@
 import { initDebug } from './debug';
-import 'preact/devtools';
+import '@de-pa/preact/devtools';
 
 initDebug();
 

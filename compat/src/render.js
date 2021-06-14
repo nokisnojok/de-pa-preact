@@ -4,7 +4,7 @@ import {
 	options,
 	toChildArray,
 	Component
-} from 'preact';
+} from '@de-pa/preact';
 
 export const REACT_ELEMENT_TYPE =
 	(typeof Symbol != 'undefined' && Symbol.for && Symbol.for('react.element')) ||

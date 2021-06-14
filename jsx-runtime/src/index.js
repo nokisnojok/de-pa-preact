@@ -1,4 +1,4 @@
-import { options, Fragment } from 'preact';
+import { options, Fragment } from '@de-pa/preact';
 
 /** @typedef {import('preact').VNode} VNode */
 

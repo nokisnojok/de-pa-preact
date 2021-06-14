@@ -1,4 +1,4 @@
-import { Component, createElement, options, Fragment } from 'preact';
+import { Component, createElement, options, Fragment } from '@de-pa/preact';
 import { assign } from './util';
 
 const oldCatchError = options._catchError;

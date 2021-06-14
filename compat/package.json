@@ -14,6 +14,6 @@
     "regex": "^_"
   },
   "peerDependencies": {
-    "preact": "^10.0.0"
+    "@de-pa/preact": "^0.0.1"
   }
 }

@@ -1,4 +1,4 @@
-import { createElement, Component, Fragment } from 'preact';
+import { createElement, Component, Fragment } from '@de-pa/preact';
 
 export default class extends Component {
 	state = { number: 0 };

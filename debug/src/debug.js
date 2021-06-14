@@ -1,5 +1,5 @@
 import { checkPropTypes } from './check-props';
-import { options, Component } from 'preact';
+import { options, Component } from '@de-pa/preact';
 import {
 	ELEMENT_NODE,
 	DOCUMENT_NODE,

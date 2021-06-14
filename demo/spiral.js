@@ -1,4 +1,4 @@
-import { createElement, Component } from 'preact';
+import { createElement, Component } from '@de-pa/preact';
 
 const COUNT = 500;
 const LOOPS = 6;

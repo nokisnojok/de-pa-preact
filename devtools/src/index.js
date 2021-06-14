@@ -1,4 +1,4 @@
-import { options } from 'preact';
+import { options } from '@de-pa/preact';
 import { initDevTools } from './devtools';
 
 initDevTools();

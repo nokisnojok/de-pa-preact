@@ -1,4 +1,4 @@
-import { toChildArray } from 'preact';
+import { toChildArray } from '@de-pa/preact';
 
 const mapFn = (children, fn) => {
 	if (children == null) return null;

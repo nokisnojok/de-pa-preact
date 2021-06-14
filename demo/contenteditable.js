@@ -1,5 +1,5 @@
-import { createElement } from 'preact';
-import { useState } from 'preact/hooks';
+import { createElement } from '@de-pa/preact';
+import { useState } from '@de-pa/preact/hooks';
 
 export default function Contenteditable() {
 	const [value, setValue] = useState("Hey there<br />I'm editable!");

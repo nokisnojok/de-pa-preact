@@ -18,7 +18,7 @@
     "test:karma:watch": "karma start test/karma.conf.js --no-single-run"
   },
   "peerDependencies": {
-    "preact": "^10.0.0"
+		"@de-pa/preact": "^0.0.1"
   },
   "mangle": {
     "regex": "^_"

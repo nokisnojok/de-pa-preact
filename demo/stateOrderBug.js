@@ -1,6 +1,6 @@
 import htm from 'htm';
-import { h } from 'preact';
-import { useState, useCallback } from 'preact/hooks';
+import { h } from '@de-pa/preact';
+import { useState, useCallback } from '@de-pa/preact/hooks';
 
 const html = htm.bind(h);
 

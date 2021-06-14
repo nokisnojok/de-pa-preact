@@ -1,4 +1,4 @@
-import { Component } from 'preact';
+import { Component } from '@de-pa/preact';
 import { shallowDiffers } from './util';
 
 /**

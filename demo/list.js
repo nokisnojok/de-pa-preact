@@ -1,4 +1,4 @@
-import { h, render } from 'preact';
+import { h, render } from '@de-pa/preact';
 import htm from 'htm';
 import './style.css';
 

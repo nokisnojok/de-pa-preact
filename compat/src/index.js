@@ -6,7 +6,7 @@ import {
 	Component,
 	createContext,
 	Fragment
-} from 'preact';
+} from '@de-pa/preact';
 import {
 	useState,
 	useReducer,
@@ -18,7 +18,7 @@ import {
 	useCallback,
 	useContext,
 	useDebugValue
-} from 'preact/hooks';
+} from '@de-pa/preact/hooks';
 import { PureComponent } from './PureComponent';
 import { memo } from './memo';
 import { forwardRef } from './forwardRef';
@@ -117,7 +117,7 @@ const flushSync = (callback, arg) => callback(arg);
  */
 const StrictMode = Fragment;
 
-export * from 'preact/hooks';
+export * from '@de-pa/preact/hooks';
 export {
 	version,
 	Children,
